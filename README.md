@@ -1,6 +1,6 @@
 # Make GitHub Great Again
 
-This chrome extension detects when you're switching between the `Conversations` / `Commits` / `Checks` / `Files changed` pages on a GitHub PR, and reloads the browser tab instead of waiting for GitHub's cursed SPA to render the new page.
+This browser extension detects when you're switching between the `Conversations` / `Commits` / `Checks` / `Files changed` pages on a GitHub PR, and reloads the browser tab instead of waiting for GitHub's cursed SPA to render the new page.
 
 The fact that this improves loading times is bizarre, because GitHub is a single page app (SPA). Presumably, the only reason people make SPAs is because they can switch between pages faster. This is very cursed.
 
