@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --page-width: 300px;
+
+        --space: 16px;
+        --gap: 12px;
+
+        --sw-w: 56px;
+        --sw-h: 30px;
+        --sw-pad: 3px;
+        --sw-radius: 15px;
+        --sw-border: 1px;
+
+        --bg-page: #0b0b0e;
+        --bg-card: #121218;
+        --border: #2a2a3a;
+        --text: #f1f1f5;
+
+        --track-off: #2b2e42;
+        --track-off-hi: #3c415d;
+        --track-border: #4b5173;
+
+        --track-on: #a0152b;
+        --track-on-boost: #e32545;
+
+        --knob-base: #0f1016;
+
+        --white-rgb: 255 255 255;
+        --black-rgb: 0 0 0;
+        --glow-rgb: 227 37 69;
+
+        --focus-a: 1;
+        --ao-soft-a: 0.28;
+        --ao-strong-a: 0.55;
+
+        --anim-time: 220ms;
+        --anim-ease: ease;
+
+        --knob-size: calc(var(--sw-h) - var(--sw-pad) * 2);
+        --knob-left-off: var(--sw-pad);
+        --knob-left-on: calc(100% - var(--sw-pad) - var(--knob-size));
+
+        --card-shadow-lg: 0 30px 70px rgb(0 0 0 / 0.55);
+        --card-shadow-md: 0 2px 10px rgb(0 0 0 / 0.35);
+        --inner-highlight-a: 0.04;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        width: var(--page-width);
+        margin: 0 auto;
+        min-height: 100vh;
+        display: grid;
+        align-content: center;
+        gap: var(--space);
+        background: var(--bg-page);
+        color: var(--text);
+        font:
+          14px ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial;
+      }
+
+      .card {
+        padding: var(--space);
+        background:
+          linear-gradient(
+            180deg,
+            rgb(var(--white-rgb) / 0.03),
+            transparent 40%
+          ),
+          var(--bg-card);
+        border: 1px solid color-mix(in oklab, var(--border), white 8%);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: var(--gap);
+      }
+
+      .label {
+        font-size: 13px;
+        letter-spacing: 0.2px;
+      }
+
+      .toggle {
+        position: relative;
+        inline-size: var(--sw-w);
+        block-size: var(--sw-h);
+        display: inline-block;
+      }
+
+      .toggle > input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .track {
+        position: absolute;
+        inset: 0;
+        border-radius: var(--sw-radius);
+        background: linear-gradient(
+          180deg,
+          var(--track-off-hi),
+          var(--track-off)
+        );
+        border: var(--sw-border) solid var(--track-border);
+        overflow: hidden;
+        transition:
+          background var(--anim-time),
+          border-color var(--anim-time),
+          filter var(--anim-time);
+      }
+
+      .knob {
+        position: absolute;
+        inline-size: var(--knob-size);
+        block-size: var(--knob-size);
+        top: 50%;
+        left: var(--knob-left-off);
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background: var(--knob-base);
+        transition:
+          left var(--anim-time) var(--anim-ease),
+          background var(--anim-time) var(--anim-ease);
+      }
+
+      .toggle > input:checked + .track {
+        background: linear-gradient(
+          180deg,
+          color-mix(in oklab, var(--track-on-boost), white 10%),
+          var(--track-on)
+        );
+        border-color: color-mix(in oklab, var(--track-on-boost), black 20%);
+        filter: saturate(1.04);
+      }
+
+      .toggle > input:checked + .track .knob {
+        left: var(--knob-left-on);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="row">
+        <div class="label">Make GitHub great again</div>
+        <label class="toggle" aria-label="Make GitHub great again">
+          <input id="enable-plugin" type="checkbox" checked />
+          <span class="track">
+            <span class="knob" aria-hidden="true"></span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

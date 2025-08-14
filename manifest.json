@@ -1,0 +1,21 @@
+{
+  "name": "Make GitHub Great Again",
+  "description": "Speed up GitHub by converting it to an MPA",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-128.png"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.github.com/*/pull/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
