@@ -158,6 +158,50 @@
       .toggle > input:checked + .track .knob {
         left: var(--knob-left-on);
       }
+
+      details {
+        margin-top: var(--space);
+      }
+
+      summary {
+        cursor: pointer;
+        font-size: 12px;
+        color: color-mix(in oklab, var(--text), transparent 40%);
+        user-select: none;
+      }
+
+      summary:hover {
+        color: var(--text);
+      }
+
+      .advanced-options {
+        margin-top: var(--gap);
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap);
+      }
+
+      .checkbox-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .checkbox-row input[type="checkbox"] {
+        margin-top: 2px;
+        accent-color: var(--track-on);
+      }
+
+      .checkbox-label {
+        font-size: 12px;
+      }
+
+      .checkbox-label span {
+        display: block;
+        font-size: 11px;
+        color: color-mix(in oklab, var(--text), transparent 40%);
+        margin-top: 2px;
+      }
     </style>
   </head>
   <body>
@@ -171,6 +215,21 @@
           </span>
         </label>
       </div>
+      <details>
+        <summary>Advanced settings</summary>
+        <div class="advanced-options">
+          <label class="checkbox-row">
+            <input type="checkbox" id="sticky-actions-header" />
+            <div class="checkbox-label">
+              Sticky actions header
+              <span
+                >Keeps the header visible when scrolling on GitHub Actions
+                pages.</span
+              >
+            </div>
+          </label>
+        </div>
+      </details>
     </div>
     <script src="popup.js"></script>
   </body>

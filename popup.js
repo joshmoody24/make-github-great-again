@@ -1,9 +1,15 @@
-const checkbox = document.querySelector("#enable-plugin");
-chrome.storage.sync.get(["pluginEnabled"], (result) => {
-  const isEnabled = result.pluginEnabled ?? true;
-  checkbox.checked = isEnabled;
+const enableCheckbox = document.querySelector("#enable-plugin");
+const stickyHeaderCheckbox = document.querySelector("#sticky-actions-header");
+
+chrome.storage.sync.get(["pluginEnabled", "stickyActionsHeader"], (result) => {
+  enableCheckbox.checked = result.pluginEnabled ?? true;
+  stickyHeaderCheckbox.checked = result.stickyActionsHeader ?? true;
 });
-checkbox.addEventListener("change", (event) => {
-  const isEnabled = event.target.checked;
-  chrome.storage.sync.set({ pluginEnabled: isEnabled });
+
+enableCheckbox.addEventListener("change", (event) => {
+  chrome.storage.sync.set({ pluginEnabled: event.target.checked });
+});
+
+stickyHeaderCheckbox.addEventListener("change", (event) => {
+  chrome.storage.sync.set({ stickyActionsHeader: event.target.checked });
 });
