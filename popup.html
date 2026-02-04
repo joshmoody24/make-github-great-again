@@ -53,18 +53,10 @@
       * {
         box-sizing: border-box;
       }
-      html,
-      body {
-        height: 100%;
-      }
       body {
         width: var(--page-width);
-        margin: 0 auto;
-        min-height: 100vh;
-        display: grid;
-        align-content: center;
-        gap: var(--space);
-        background: var(--bg-page);
+        margin: 0;
+        background: var(--bg-card);
         color: var(--text);
         font:
           14px ui-sans-serif,
@@ -216,7 +208,7 @@
         </label>
       </div>
       <details>
-        <summary>Advanced settings</summary>
+        <summary>Settings</summary>
         <div class="advanced-options">
           <label class="checkbox-row">
             <input type="checkbox" id="sticky-actions-header" />

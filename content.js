@@ -81,6 +81,9 @@ function updateStickyHeader(enabled) {
         .uxr_CheckRun-header {
           top: var(--mgga-header-height, 72px);
         }
+        .uxr_CheckStep-header {
+          top: calc(88px + var(--mgga-header-height, 72px)) !important;
+        }
         @media (min-width: 768px) {
           .PageLayout .PageLayout-pane--sticky {
             top: var(--mgga-header-height, 72px);
