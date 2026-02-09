@@ -15,4 +15,6 @@ The fact that this improves loading times is bizarre, because GitHub is a single
 
 ## Contributions
 
-Contributions are welcome! Just fork the repo, make a PR, and request me as the reviewer. I am pretty open to new features so go wild
+Contributions are welcome! Just fork the repo, make a PR, and request me as the reviewer. I am pretty open to new features so go wild.
+
+If it's a big feature idea, consider opening an issue so we can discuss first. That way we can clarify the design first. No pressure though.
