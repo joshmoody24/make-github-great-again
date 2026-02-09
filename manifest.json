@@ -1,7 +1,7 @@
 {
   "name": "Make GitHub Great Again",
   "description": "Speed up GitHub by converting it to an MPA",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "manifest_version": 3,
   "action": {
     "default_popup": "popup.html",

@@ -73,21 +73,21 @@ function updateStickyHeader(enabled) {
       style.id = STICKY_HEADER_STYLE_ID;
       style.textContent = `
         .PageLayout-header {
-          position: sticky;
-          top: 0;
-          z-index: 100;
-          background: var(--bgColor-default);
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 100 !important;
+          background: var(--bgColor-default) !important;
         }
         .uxr_CheckRun-header {
-          top: var(--mgga-header-height, 72px);
+          top: var(--mgga-header-height, 72px) !important;
         }
         .uxr_CheckStep-header {
           top: calc(88px + var(--mgga-header-height, 72px)) !important;
         }
         @media (min-width: 768px) {
           .PageLayout .PageLayout-pane--sticky {
-            top: var(--mgga-header-height, 72px);
-            max-height: calc(100vh - var(--mgga-header-height, 72px));
+            top: var(--mgga-header-height, 72px) !important;
+            max-height: calc(100vh - var(--mgga-header-height, 72px)) !important;
           }
         }
       `;
