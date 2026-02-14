@@ -104,15 +104,18 @@ function updateStickyHeader(enabled) {
       }
     });
 
+    const startTime = Date.now();
+    const TIMEOUT_MS = 5000;
     const observeHeader = () => {
       const header = document.querySelector(".PageLayout-header");
-      debugLog("header:", header);
       if (header) {
+        debugLog("header:", header);
         updateHeaderHeight(header);
         stickyHeaderState.observer.observe(header);
-      } else {
-        // Header not yet in DOM, try again
+      } else if (Date.now() - startTime < TIMEOUT_MS) {
         requestAnimationFrame(observeHeader);
+      } else {
+        debugLog("header not found after", TIMEOUT_MS / 1000, "seconds, giving up");
       }
     };
     observeHeader();
